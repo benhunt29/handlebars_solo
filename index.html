@@ -1,0 +1,85 @@
+<!DOCTYPE = html>
+<html>
+
+	<head>
+
+		<meta charset = "utf-8">
+		
+		<title>Handlebars</title>
+		
+		<meta name = "Description" content = "Webpage">
+		
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+		<link rel="stylesheet" href="styles.css">
+	   
+	    <script src = "jquery-2.1.4.min.js" type="text/javascript"></script>
+	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	    <script src="handlebars-v3.0.3.js" type = "text/javascript"></script>
+	    <script src="scripts.js" type = "text/javascript"></script>
+	    
+
+	</head>
+
+	<body>
+		<script id="entry-template" type="text/x-handlebars-template">
+  			
+			<div class = "container">
+				<div class = "jumbotron centered">
+					<h1>{{firstName}} {{lastName}}</h1>
+				</div>
+			</div>
+
+  			<div class = "container">
+			    	<h2 class = "col-lg-12">Parents</h2>
+
+					{{#each parents}}
+					    <div class="body col-lg-6">
+					      	{{this}}
+					    </div>
+					{{/each}}
+
+					<h2 class = "col-lg-12">Siblings</h2>
+
+					{{#each siblings}}
+					    <div class="body col-lg-6">
+					      	{{@key}}: {{this}}
+					    </div>
+					{{/each}}
+
+					<h2 class = "col-lg-12">Currently Reading</h2>
+
+					{{#each currentReadingList}}
+					    <div class="body col-lg-6">
+					      	<div class = "body col-lg-4">
+					      		Title: {{Title}}
+					      	</div>
+					      	<div class = "body col-lg-4">
+					      		Author: {{Author}}
+					      	</div>
+					      	<div class = "body col-lg-4">
+					      		Type: {{Type}}
+					      	</div>
+					    </div>
+
+					    <div class="body col-lg-6">
+					      	<div class = "body col-lg-6">
+						      	{{#link link}}
+						      	{{/link}}
+					      	</div>
+					      	
+					      	<div class = "body col-lg-6 bookCover">
+					      		{{#img img}}
+					      		{{/img}}
+					      	</div>
+					    </div>
+
+					{{/each}}
+  			</div>
+		</script>
+		<div class = "person"></div>
+
+	</body>
+
+</html>
